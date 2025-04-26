@@ -1,0 +1,176 @@
+/* * (asterisco) significa "todos os elementos da página" */
+* {
+    margin: 0;               /* Remove as margens externas padrão de todos os elementos */
+    padding: 0;              /* Remove os espaçamentos internos padrão */
+    box-sizing: border-box; /* Faz com que o padding e border não aumentem o tamanho total do elemento */
+}
+
+/* Estilo geral do corpo (o fundo da página) */
+body {
+    background: black; /* Cor de fundo preta */
+    color: rgb(254, 216, 146); /* Cor do texto: tom claro (tipo bege) que contrasta com o fundo preto */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte usada para o texto */
+    line-height: 1.6; /* Espaçamento entre linhas para facilitar a leitura */
+    position: relative; /* Define que elementos filhos com "position: absolute" vão se basear neste aqui */
+    padding: 20px; /* Espaço interno em toda a volta do corpo */
+    z-index: 1; /* Camada onde esse conteúdo vai ficar (1 é acima do 0, por exemplo) */
+}
+
+/* Efeito Matrix Azul no fundo */
+body::before {
+    content: ''; /* Elemento vazio só pra exibir o fundo */
+    position: fixed; /* Fica fixo na tela mesmo rolando a página */
+    top: 0; left: 0; /* Começa no canto superior esquerdo */
+    width: 100%; height: 100%; /* Ocupa 100% da tela (largura e altura) */
+
+    background-size: cover; /* A imagem de fundo se ajusta pra cobrir toda a tela */
+    opacity: 0.1; /* Bem transparente: valor entre 0 (invisível) e 1 (opaco) */
+    z-index: 0; /* Fica no fundo de tudo */
+    pointer-events: none; /* Deixa passar cliques como se esse fundo não estivesse lá */
+}
+
+/* Cabeçalho (geralmente onde está o título da página) */
+header {
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 40px; /* Espaço embaixo do header */
+    position: relative; /* Para o z-index funcionar */
+    z-index: 2; /* Fica acima do efeito Matrix */
+}
+
+/* Área principal do conteúdo da página */
+main {
+    max-width: 800px; /* Largura máxima de 800px */
+    margin: auto; /* Centraliza o conteúdo horizontalmente */
+    position: relative;
+    z-index: 2; /* Fica acima do efeito Matrix */
+}
+
+/* Título de seções (tipo <h2>) */
+h2 {
+    font-size: 1.8rem; /* Tamanho da letra (rem é baseado na fonte padrão) */
+    margin-bottom: 10px; /* Espaço abaixo do título */
+    color: #22d4fd; /* Cor azul clara */
+    border-bottom: 1px solid #00f0ff; /* Linha azul abaixo do título */
+    display: inline-block; /* Faz a borda pegar só o tamanho do texto */
+}
+
+/* Seção de destaque da página, tipo apresentação ou banner */
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Moldura da imagem */
+.foto-container {
+    width: 300px; height: 400px; /* Tamanho fixo da moldura */
+    overflow: hidden; /* Corta o que passar do tamanho definido */
+    border-radius: 2px; /* Pontas levemente arredondadas */
+    margin: 0 auto 30px auto; /* Centraliza e dá espaço embaixo */
+    box-shadow: 0 0 15px #22d4fd; /* Sombra azul ao redor da foto */
+}
+
+/* Imagem dentro da moldura */
+.foto-container img {
+    width: 100%; height: 100%; /* Preenche toda a moldura */
+    object-fit: cover; /* Corta a imagem pra não distorcer */
+}
+
+.secao-orcamento { /*botão de orçamento*/
+    text-align: center;
+}
+
+/* Botões da página */
+.botao {
+    display: inline-block; /* Ocupa só o espaço necessário */
+    margin-top: 15px; /* Espaço acima do botão */
+    background-color: #22d4fd; /* Fundo azul claro */
+    color: #000; /* Texto preto */
+    padding: 10px 20px; /* Espaçamento interno (em cima/baixo e nas laterais) */
+    border-radius: 5px; /* Bordas arredondadas */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    font-weight: bold; /* Texto mais grosso */
+}
+.botao:hover {
+    background-color: #00bcd4; /* muda o tom do azul quando passa o mouse */
+    transform: scale(1.05); /* dá uma leve aumentada para parecer mais clicável */
+    transition: all 0.3s ease; /* deixa a transição suave */
+}
+
+
+
+
+/* Cada bloco (sessão) da página */
+section {
+    margin-bottom: 40px; /* Espaço abaixo de cada seção */
+}
+
+/* Listas (ul = lista não ordenada) */
+ul {
+    list-style: none; /* Remove as bolinhas padrão da lista */
+    padding-left: 20px; /* Recuo da esquerda */
+}
+
+/* Personalizando os itens da lista (li) */
+ul li::before {
+    content: "• "; /* Adiciona uma bolinha antes de cada item */
+    color: #22d4fd; /* Cor azul para a bolinha */
+}
+
+/* Estilo dos links */
+a {
+    color: #fefefe; /* Cor azul */
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+/* Rodapé da página */
+footer {
+    text-align: center; /* Centraliza o texto */
+    margin-top: 40px; /* Espaço acima do rodapé */
+    font-size: 0.9rem; /* Tamanho da letra um pouco menor */
+    color: #888; /* Cinza claro */
+}
+
+/* Canvas que mostra o efeito Matrix (letras caindo) */
+#matrix-canvas {
+    position: fixed; /* Fica grudado no fundo da tela */
+    top: 0; left: 0;
+    z-index: -1; /* Fica atrás de todo o resto */
+    width: 100vw; /* Ocupa 100% da largura da janela */
+    height: 100vh; /* Ocupa 100% da altura da janela */
+    background-color: #000; /* Fundo preto pra destacar o efeito */
+}
+
+
+#estudos, #objetivos, #frase-impacto,#sobre-mim, #habilidades,#projetos, #contato, #hero {
+    background-color: #111;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 800px;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(34, 212, 253, 0.2);
+}
+
+blockquote {
+    font-style: italic;
+    color: #00f0ff;
+    margin: 20px 0;
+    padding-left: 20px;
+    border-left: 3px solid #22d4fd;
+}
+
+
+section:hover {
+    transform: scale(1.01);
+}
+
+.bloco-texto {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px; /* esse padding deixa o conteúdo mais "respirando" */
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 10px rgba(34, 212, 253, 0.5);
+}
+
+
+

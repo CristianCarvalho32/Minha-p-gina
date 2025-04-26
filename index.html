@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Portfólio do Cristian Carvalho - Desenvolvedor Iniciante em HTML e CSS. Sites simples com dedicação e responsabilidade." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cristian Carvalho - Desenvolvedor Web</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Efeito Matrix -->
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- Foto de Perfil -->
+  <div class="foto-container">
+    <img src="minha foto2.png" alt="Cristian Carvalho" />
+  </div>
+
+  <!-- Cabeçalho -->
+  <header>
+    <p>Desenvolvedor em formação | Foco em HTML e CSS,JavaScript </p>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main>
+
+    <!-- Seção: Apresentação -->
+    <section class="hero">
+      <h2>Seu site, feito com dedicação</h2>
+      <p>
+        Sou iniciante, mas levo a sério cada projeto. Se você precisa de um site
+        simples e funcional, feito com cuidado e atenção aos detalhes, posso te ajudar!
+      </p>
+      
+
+    <!-- Seção: Sobre Mim -->
+    <section id="sobre-mim">
+      <h2>Sobre mim</h2>
+      <p>
+        Meu nome é Cristian Carvalho. Estou estudando para me tornar desenvolvedor web
+        e, mesmo no início da jornada, já consigo criar páginas simples e responsivas
+        usando HTML e CSS.
+      </p>
+    </section>
+
+    <!-- Seção: Habilidades -->
+    <section id="habilidades">
+      <h2>Habilidades</h2>
+      <ul>
+        <li>✅ HTML e CSS - Estudando e praticando com projetos reais</li>
+        <li>📱 Sites simples e responsivos</li>
+        <li>🔧 Ajustes e melhorias em páginas existentes</li>
+        <li>🚀 Aprendendo: JavaScript, GitHub, lógica de programação</li>
+      </ul>
+    </section>
+
+    <!-- Seção: Projetos -->
+    <section id="projetos">
+      <h2>Projetos</h2>
+      <ul>
+        <li>🧪 Página de apresentação com HTML e CSS</li>
+        <li>📋 Mini portfólio (essa página!)</li>
+        <li>💡 Experimentos com responsividade e estilos</li>
+      </ul>
+    </section>
+
+
+  </main>
+
+
+<section id="estudos">
+    <h2>Estudando atualmente</h2>
+    <ul>
+      <li>📚 JavaScript - DOM, funções e interatividade</li>
+      <li>👨‍💻 Git e GitHub - Controle de versões e colaboração</li>
+      <li>🧠 Lógica de programação - Fundamentos e resolução de problemas</li>
+      <li>🤖 Inteligência Artificial - Criação de prompts eficientes com ChatGPT</li>
+    </ul>
+  </section>
+  
+  <section id="objetivos">
+    <h2>Meus objetivos como desenvolvedor</h2>
+    <ul>
+      <li>🚀 Ingressar na área tech com meu primeiro projeto profissional</li>
+      <li>📈 Evoluir no front-end e expandir para back-end futuramente</li>
+      <li>💡 Criar projetos práticos que resolvam problemas reais</li>
+      <li>🤝 Conectar com pessoas e colaborar em soluções criativas</li>
+    </ul>
+  </section>
+  
+  <section id="frase-impacto" class="bloco-texto">
+    <!-- Frase de Impacto -->
+    <blockquote>
+      "Não sou um especialista (ainda), mas sou constante, curioso e apaixonado por tecnologia."
+    </blockquote>
+    <p>Uso IA de forma criativa para aprender mais rápido, automatizar tarefas e pensar fora da caixa. Prompt engineering faz parte da minha rotina!</p>
+  </section>
+
+  <!-- Seção: Contato -->
+  
+  <section id="contato">
+    <h2>Vamos conversar?</h2>
+    <ul>
+      <li><a href="mailto:chcarvalho1992@mail.com">chcarvalho1992@mail.com</a></li>
+      <li><a href="https://github.com/CristianCarvalho32" target="_blank">Meu GitHub</a></li>
+    </ul>
+  </section>
+  
+
+  <!-- Script Matrix -->
+  <script>
+    const canvas = document.getElementById('matrix-canvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const letters = "010101ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function draw() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#22d4fd";
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+
+        drops[i]++;
+      }
+    }
+    
+
+    setInterval(draw, 35);
+  </script>
+
+<section class="secao-orcamento">
+    <a href="https://wa.me/5541996459510" class="botao" target="_blank">Solicitar orçamento</a>
+</section>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2025 Cristian Carvalho. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
